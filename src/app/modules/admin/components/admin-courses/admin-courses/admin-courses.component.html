@@ -1,0 +1,79 @@
+<div class="loading" *ngIf="isLoading">
+
+  <app-loading-spinner ></app-loading-spinner>
+</div>
+<button mat-raised-button (click)="addCourse()" class="add-btn"> Add Course </button>
+<table mat-table [dataSource]="courses" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef> Title </th>
+      <td mat-cell *matCellDef="let element" style="width: 15%;"> {{element.title}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let element" style="width: 30%;"> {{element.description}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef> Category </th>
+      <td mat-cell *matCellDef="let element" style="width: 15%;"> {{element.category}} </td>
+    </ng-container>
+  
+
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="urlImg">
+      <th mat-header-cell *matHeaderCellDef> Image Url</th>
+      <td mat-cell *matCellDef="let element" style="width: 15%;"> {{element.urlImg}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Price</th>
+        <td mat-cell *matCellDef="let element" style="width: 15%;"> {{element.price | currency  }} </td>
+      </ng-container>
+ 
+
+     <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions </th>
+        <td mat-cell *matCellDef="let row" style="width: 15%;">
+                <button mat-icon-button matTooltip="Click to Edit" class="iconbutton" color="primary" (click)="onEdit(row)" >
+                        <mat-icon aria-label="Edit" >edit</mat-icon>
+                      </button>
+                    <button mat-icon-button matTooltip="Click to Delete" class="iconbutton" color="warn" (click)="onDelete(row)" >
+                        <mat-icon aria-label="Delete">delete</mat-icon>
+               </button>
+        </td>
+      </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<section class="table-container">
+  <div class="row-course">
+    <div class="card" *ngFor="let course of courses">
+      <div class="card-content">
+
+        <p class="cat"> Category : {{course.category}}</p>
+        <p class="title"> Title : {{course.title}}</p>
+        <p class="desc"> Description : {{course.description}}</p>
+        <p class="price"> Price : {{course.price | currency}}</p>
+        <p class="img"> Image URL : {{course.urlImg}}</p>
+      </div>
+      <div class="btns-card">
+        <button mat-icon-button matTooltip="Click to Edit" class="iconbutton" color="primary" (click)="Edit(course.key)" >
+          <mat-icon aria-label="Edit" >edit</mat-icon>
+        </button>
+      <button mat-icon-button matTooltip="Click to Delete" class="iconbutton" color="warn" (click)="Delete(course.key)" >
+          <mat-icon aria-label="Delete">delete</mat-icon>
+ </button>
+      </div>
+    </div>
+
+  </div>
+</section>

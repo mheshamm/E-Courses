@@ -1,0 +1,14 @@
+.footer-row{
+    width: 100%;
+    text-align: center;
+    
+    color:gray;
+
+}
+h4 {
+    font-size: 15px;
+}
+.footer-row mat-icon {
+    color : red;
+    font-size: 15px;
+}

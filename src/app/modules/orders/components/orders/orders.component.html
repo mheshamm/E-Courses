@@ -1,0 +1,72 @@
+<div class="loading" *ngIf="isLoading">
+
+    <app-loading-spinner ></app-loading-spinner>
+  </div>
+<section *ngIf="total()!==0">
+    <div class="container">
+        <h3 class="header">
+            Your Order Summary
+        </h3>
+        <hr>
+        <div class="card" *ngFor="let course of courses">
+            <div class="card-img">
+                <img [src]="course.urlImg">
+            </div>
+            <div class="card-title">
+                <h3>{{course.title}}</h3>
+                
+            </div>
+            <div class="price">
+                <h4>{{course.price | currency}}</h4>
+
+            </div>
+            
+        </div>
+        
+        <div class="total">
+            <h2>Total :</h2>
+            <h3>{{total()  | currency}} </h3>
+        </div>
+        <div class="next" *ngIf="courses.length!==0">
+            <button class="next-btn" (click)="pay()">
+                PAY
+            </button>
+            <button class="next-btn cancel" (click)="cancel()">
+                CANCEL
+            </button>
+        </div>
+        
+    </div>
+
+</section>
+<section *ngIf="total()==0">
+    <div class="container">
+        <h3 class="header">
+            Your Last Orders
+        </h3>
+        <hr>
+        <div class="cards">
+
+        
+        <div class="card" *ngFor="let order of Myorders">
+            
+            <div class="card-total">
+                <h3>{{order.total | currency}}</h3>
+                
+            </div>
+            <div class="date">
+                <h4>{{order.dateCreated | date}}</h4>
+
+            </div>
+            <div class="items">
+                <h4>{{order.items.length}} Item</h4>
+
+            </div>
+            
+        </div>
+    </div>
+        
+        
+        
+    </div>
+</section>

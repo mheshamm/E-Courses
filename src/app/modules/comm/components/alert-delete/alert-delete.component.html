@@ -1,0 +1,26 @@
+<div class="delete" *ngIf="!isDeleted">
+    <h2>
+        Alert <mat-icon>warning</mat-icon>
+    </h2>
+    <p>
+        Are You Sure To Delete This Course ? 
+    </p>
+    <button mat-raised-button class="submit" (click)="Del()" color="warn">
+      DELETE
+  </button>
+  <button mat-raised-button class="cancel" (click)="cancel()">
+    CANCEL
+</button>
+</div>
+<div class="success" *ngIf="isDeleted">
+    <h2>
+        Success <mat-icon>check_circle</mat-icon>
+    </h2>
+    <p>
+         Course is Deleted Successfully<span><mat-icon>check</mat-icon></span>
+    </p>
+</div>
+<div class="loading" *ngIf="isLoading">
+
+    <app-loading-spinner ></app-loading-spinner>
+  </div>

@@ -1,0 +1,14 @@
+<div class="loading" *ngIf="isLoading">
+
+    <app-loading-spinner ></app-loading-spinner>
+</div>
+<section *ngIf="!user">
+
+    <div class="login-container">
+        <div class="img-container">
+            <img src="https://cdn4.iconfinder.com/data/icons/linecon/512/photo-512.png" id="avatar">
+        </div>
+    
+        <button mat-raised-button (click)="onLogIn()" color="primary" > <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1200px-Google_%22G%22_Logo.svg.png"> Sign In With Google</button>
+    </div>
+</section>

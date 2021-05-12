@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+app-courses .mat-tab-label-content {text-transform: uppercase; letter-spacing: 1px; }
+app-side-nav #mat-tool{z-index: 90;}
+app-side-nav .mat-button-focus-overlay { 
+    background-color: transparent!important; 
+    }
+  app-home .carousel-indicators li {
+        background-color:darkcyan;
+    }
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: rgb(65, 0, 185);
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgb(59, 0, 168);;
+    }
+    

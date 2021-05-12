@@ -1,0 +1,12 @@
+mat-icon {
+    color: rgb(0, 128, 68);
+    margin-left: 5px;
+}
+h4 , p{
+    display:flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+p mat-icon {
+    color : red;
+}

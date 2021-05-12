@@ -1,0 +1,115 @@
+<div class="loading" *ngIf="isLoading">
+
+    <app-loading-spinner ></app-loading-spinner>
+  </div>
+  <section class="search ">
+    <div class="search-container">
+      <input type='text' (input)="search($event)" id="input" placeholder="Search Courses ..." #input>
+    </div>
+    <div class="container1" >
+      
+
+        
+      
+     
+      <div class="cardscontainer" *ngIf="searched.length!==0" >
+        <div class="card-container" *ngFor = "let course of searched">
+          <mat-card class="card" >
+            <mat-card-header >
+              
+              <mat-card-title >{{course.title}}</mat-card-title>
+              
+            </mat-card-header>
+            <div mat-card-avatar class="header-image">
+  
+              <img mat-card-image [src]="course.urlImg" >
+            </div>
+            <mat-card-content>
+              <p>
+                {{course.description}}
+              </p>
+              <div class="price">
+                <h2>
+  
+                  {{course.price}}<span class="material-icons">
+                    attach_money
+                    </span>
+                </h2>
+              </div>
+            </mat-card-content>
+            <mat-card-actions *ngIf="user!==null" >
+              <button class="add" (click)="addToCart(course)" *ngIf="!isCourseExist(course.key)">ADD TO CART</button>
+              <button class="del" (click)="DeleteCourse(course)" *ngIf="isCourseExist(course.key)">DELETE FROM CART</button>
+              
+            </mat-card-actions>
+          </mat-card>
+  
+        </div>
+  
+  
+      </div>
+    </div>
+    
+  </section>
+<section *ngIf="!isLoading" >
+    
+<div class="carousel-container">
+    <h2>
+        New Courses
+    </h2>
+
+    <ngb-carousel  >
+        <ng-template ngbSlide *ngFor="let course of courses">
+          <div class="picsum-img-wrapper">
+            <img [src]="course.urlImg" [alt]="course.title">
+          </div>
+          <div class="carousel-caption">
+            <h3>{{course.title}}</h3>
+            <p>{{course.description}}</p>
+          </div>
+        </ng-template>
+        
+      </ngb-carousel>
+</div>
+
+</section>
+<div class="selected">
+  <div class="header">
+    <h3 class="selected-header">
+      We Choose For You
+    </h3>
+  </div>
+  <div class="selected-card-container" *ngFor="let course of selectedCourses">
+    <div class="selected-card">
+      <div class="selected-img">
+        <img [src]="course.urlImg">
+      </div>
+      <div class="overlay"></div>
+      <div class="selected-content">
+        <div class="selected-content-container">
+
+          <h3>
+            {{course.title}}
+          </h3>
+          <p id="price-content">
+            {{course.description}}
+          </p>
+          <div class="price-selected">
+
+            <h4>
+              {{course.price | currency}}
+            </h4>
+          </div>
+          <div class="selected-btns" *ngIf="user!==null" >
+
+            <button class="add" (click)="addToCart(course)" *ngIf="!isCourseExist(course.key)">ADD TO CART</button>
+                  <button class="del" (click)="DeleteCourse(course)" *ngIf="isCourseExist(course.key)">DELETE FROM CART</button>
+          </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+<app-footer></app-footer>

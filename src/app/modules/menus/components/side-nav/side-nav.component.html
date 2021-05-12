@@ -1,0 +1,53 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="false"
+      >
+    
+    <mat-nav-list id="side">
+      <a mat-list-item	routerLink="/" [routerLinkActive]= "'active'" (click)="drawer.close()" [routerLinkActiveOptions]="{exact: true}" >Home</a>
+          <a mat-list-item	routerLink="/courses" [routerLinkActive]= "'active'" (click)="drawer.close()">Courses</a>
+          <a mat-list-item	routerLink="/about" [routerLinkActive]= "'active'" (click)="drawer.close()">About</a>
+          <a mat-list-item	class="shopping" (click)="goToCart()"
+          ><span class="No1" *ngIf="CartNo!==0">{{CartNo}}</span><i class="material-icons" (click)="drawer.close()">shopping_cart</i></a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" id="mat-tool">
+      <button
+        type="button"
+        id="menu"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span class="logo" routerLink="/">E-Courses</span>
+      <div [ngClass]="{hidden:(isHandset$ | async)}"  >
+        <a mat-button	routerLink="/" [routerLinkActive]= "'active'" [routerLinkActiveOptions]="{exact: true}" >Home</a>
+          <a mat-button	routerLink="/courses" [routerLinkActive]= "'active'">Courses</a>
+          <a mat-button	routerLink="/about" [routerLinkActive]= "'active'">About</a>
+          <a mat-button (click)="goToCart()"	><span class="No" *ngIf="CartNo!==0">{{CartNo}}</span><i class="material-icons">shopping_cart</i></a>
+          
+          
+      </div>
+      <span class="example-spacer"></span>
+      <div>
+            <a mat-button *ngIf="!user" routerLink="/login"	[routerLinkActive]="'active'">Login</a>
+            <a mat-button [matMenuTriggerFor]="Menu" *ngIf="user" class="user">{{user.name}}</a>
+            <mat-menu #Menu='matMenu'>
+              <button mat-menu-item routerLink="/orders"> Orders</button>
+              <button mat-menu-item routerLink="/admin-courses" *ngIf="user && user.isAdmin"> Admin Courses</button>
+              <button mat-menu-item (click)="LogOut()"> LogOut</button>
+            </mat-menu>
+      </div>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <div class="body">
+
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

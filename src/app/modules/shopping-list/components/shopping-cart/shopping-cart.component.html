@@ -1,0 +1,35 @@
+<section>
+    <div class="container">
+
+        <div class="card" *ngFor="let course of courses">
+            <div class="card-img">
+                <img [src]="course.urlImg">
+            </div>
+            <div class="card-title">
+                <h2>{{course.title}}</h2>
+                <p> {{course.description}}</p>
+            </div>
+            <div class="price">
+                <h4>{{course.price | currency}}</h4>
+
+            </div>
+            <div class="actions">
+                <button (click)="delete(course.key)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+
+            </div>
+        </div>
+        
+        <div class="total">
+            <h2>Total :</h2>
+            <h3>{{total()  | currency}} </h3>
+        </div>
+        <div class="next" *ngIf="courses.length!==0">
+            <button class="next-btn" (click)="next()">
+                Next
+            </button>
+        </div>
+    </div>
+
+</section>

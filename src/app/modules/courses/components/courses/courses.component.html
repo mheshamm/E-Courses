@@ -1,0 +1,54 @@
+<div class="loading" *ngIf="isLoading">
+
+  <app-loading-spinner ></app-loading-spinner>
+</div>
+<mat-tab-group >
+    <mat-tab  
+    *ngFor = "let cat of categories" 
+     [label]="cat.label"> 
+     <section class="cardscontainer">
+
+       <div class="card-container" *ngFor="let course of getCourseByCategory(cat.key)">
+        <mat-card class="card">
+          <mat-card-header >
+            
+            <mat-card-title >{{course.title}}</mat-card-title>
+            
+          </mat-card-header>
+          <div mat-card-avatar class="header-image">
+
+            <img mat-card-image [src]="course.urlImg" >
+          </div>
+          <mat-card-content>
+            <p>
+              {{course.description}}
+            </p>
+            <div class="price">
+              <h2>
+
+                {{course.price}}<span class="material-icons">
+                  attach_money
+                  </span>
+              </h2>
+            </div>
+          </mat-card-content>
+          <mat-card-actions *ngIf="user!==null">
+            <button class="add" (click)="addToCart(course)" *ngIf="!isCourseExist(course.key)">ADD TO CART</button>
+            <button class="del" (click)="DeleteCourse(course)" *ngIf="isCourseExist(course.key)">DELETE FROM CART</button>
+            
+          </mat-card-actions>
+          <mat-card-actions *ngIf="user===null">
+            
+            <button (click)="ongo()" class="del"  >Login To Add To Cart</button>
+            
+          </mat-card-actions>
+        </mat-card>
+        
+       </div>
+     </section>
+     
+    </mat-tab>
+    
+    
+  </mat-tab-group>
+  

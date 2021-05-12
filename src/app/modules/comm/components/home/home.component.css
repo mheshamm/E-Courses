@@ -1,0 +1,384 @@
+.loading {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.473);
+    z-index: 6;
+    
+    vertical-align: middle;
+    
+}
+app-loading-spinner {
+    margin-top: 30VH;
+}
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.carousel-container h2 {
+    width:90%;
+    text-align: left;
+    letter-spacing:1.8px;
+    text-transform: uppercase;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-left: 15px solid black;
+    padding-left: 5px;
+    color:red;
+
+}
+ngb-carousel {
+    width:90%;
+    height:500px;
+}
+ng-template{
+    height:100%;
+}
+.picsum-img-wrapper{
+    height:100%;   
+}
+.picsum-img-wrapper img{
+    width:100%;
+    height:500px;
+    object-fit: cover;
+    object-position: center;
+    outline: none;
+}
+.carousel-caption{
+    width:100%;
+    background-color: rgba(0, 0, 0, 0.534);
+    left:0;
+    bottom:0;
+    right: 0;
+    top: 0;
+    height:160px;
+}
+.carousel-caption h3{
+    text-transform: uppercase;
+    letter-spacing:3px;
+    font-weight: 800;
+    
+
+
+}
+.not{width: 100%;}
+.carousel-caption p{
+    color: rgb(255, 136, 0);
+    font-size: 25px;
+    font-weight: 400;
+    text-transform: capitalize;
+    margin-top: 20px;
+}
+.carousel-indicators li {
+    background-color: darkcyan !important;
+}
+.card-container{
+    width: 32%;
+    display: flex;
+    justify-content:center;
+    margin-right: 1.3%;
+    
+}
+.search-container,.container1 {
+    display:flex;
+    width: 100%;
+    align-items: center;
+    justify-content:center;
+    margin: 20px 0;
+}
+#input{
+width: 90%;
+border: 1px solid rgb(89, 194, 255);
+outline:none;
+height:40px;
+padding-left: 10px;
+
+
+}
+.cardscontainer , .selected{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content:start;
+    
+    height: auto;
+    margin-bottom: 20px;
+
+}
+.card {
+    width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    justify-content: space-between;
+    padding: 0;
+    margin:10px 10px ;
+    
+}
+.header-image{
+    display: flex;
+    height: 220px;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    
+}
+.header-image img {
+    
+    object-fit: contain;
+    display:block;
+    height:100%;
+    width: 100%;
+    margin-top: 0;
+    
+
+}
+mat-card-header{
+    background-color: rgb(255, 208, 0);
+    text-align: center;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    padding-top: 10px;
+    display: block;
+}
+mat-card-content{
+    font-size: 20px;
+    text-transform: capitalize;
+    padding: 10px;
+    margin-bottom: 5px;
+    
+}
+mat-card-content p {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    
+}
+mat-card-content h2 {
+    margin: 5px 0 ;
+}
+mat-card-actions{
+    margin-bottom: 5px;
+}
+.mat-card-actions{
+    padding: 0;
+    margin:0
+}
+mat-card-actions button{
+    width: 100%;
+    height:50px;
+    border: 0;
+    color:white;
+    cursor: pointer;
+    
+}
+.add{
+    background-color: rgb(0, 128, 53);
+}
+.del{
+    background-color: rgb(235, 18, 2);
+}
+.selected-header{
+    border-left: 15px solid rgb(255, 208, 0);
+    padding-left: 5px;
+}
+.header{
+    width: 100%;
+}
+.selected {
+    width: 90%;
+    margin:20px auto ;
+    display: flex;
+    
+    justify-content: space-between;
+    align-items: center;
+
+}
+.selected-card-container{
+    width:24%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    border-radius: 5px;
+    
+}
+.selected-card{
+    display: block;
+    position: relative;
+    width: 90%;
+    height: 100%;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.95); 
+box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.95);
+}
+.selected-img{
+    width: 100%;
+    border-radius: 5px;
+    
+
+}
+.selected-img img {
+    width: 100%;
+    border-radius: 5px;
+    height: 500px;
+    object-fit:cover;
+    object-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.selected-content{
+    position: absolute;
+    border-radius: 5px;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.822);
+    width: 100%;
+    height: 500px;
+    display:none;
+    
+    
+}
+.selected-card-container:hover .selected-content {
+    display: block;
+    transition: ease 1s;
+}
+.selected-content-container {
+    width: 100%;
+    border-radius: 5px;
+    height: 500px;
+    position: absolute;
+    top: 0;
+
+}
+#price-content{
+    height:150px;
+    font-size: 14px !important;
+    
+    
+
+
+}
+.overlay{
+    width: 100%;
+    border-radius: 5px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.575);
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    
+
+}
+.selected-content h3 {
+    text-align: center;
+    margin-top: 10px;
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    letter-spacing:2px;
+    font-size: 30px;
+    font-weight: 700;
+    
+}
+.selected-content p {
+    text-align: left;
+    margin-top: 30px;
+    padding: 10px 20px;
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: capitalize;
+    
+    font-size: 25px;
+    font-weight: 300;
+
+}
+.price-selected{
+    width:100%;
+    position: absolute;
+    bottom: 80px;
+}
+.selected-btns{
+    width:100%;
+    position: absolute;
+    bottom: 0px;
+}
+.selected-content h4 {
+    
+    text-align: center;
+    font-size: 50px;
+    color:rgb(158, 102, 214);
+
+}
+.selected-btns button {
+    width: 100%;
+    height: 50px;
+    color:white;
+    border: none;
+    
+}
+
+@media only screen and (max-width: 850px){
+    .selected-card-container { 
+        width: 45%;
+    }
+
+}
+
+@media only screen and (max-width: 650px){
+    .card-container{
+        width: 49%;
+        margin-right: 0.6%;
+        
+        
+    }
+    
+    .carousel-container h2 {
+        width:95%;
+        
+    
+    }
+    ngb-carousel {
+        width:95%;
+        height:350px;
+    }
+    .picsum-img-wrapper img{
+        
+        height:350px;
+        
+    }
+    .carousel-caption p {
+        font-size: medium;
+
+        
+    }
+
+}
+@media only screen and (max-width: 500px){
+    .card-container{
+        width: 90%;
+        margin: auto;}
+        .selected-card-container { 
+            width: 95%;
+        }
+        
+        
+    }
+    
+            
+            
+        
+        

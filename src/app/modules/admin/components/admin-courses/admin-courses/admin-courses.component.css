@@ -1,0 +1,81 @@
+.add-btn {
+    margin-bottom: 20px;
+    background-color: rgb(255, 217, 0);
+    text-transform: uppercase;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.loading {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.473);
+    z-index: 6;
+    
+    vertical-align: middle;
+    
+}
+app-loading-spinner {
+    margin-top: 30VH;
+}
+.row-course{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    width: 100%;
+}
+.card{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height:150px;
+    margin: 10px auto;
+    -webkit-box-shadow: 0px 0px 8px 2px #878787; 
+box-shadow: 0px 0px 8px 2px #878787;
+    width: 90%;
+    padding-left: 10px;
+    position: relative;
+
+}
+.card p {
+    margin-bottom: 5px;
+}
+.img , .desc{
+    display:inline-block;
+    width: 300px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+}
+.table-container{
+    display: none;
+}
+.btns-card{
+    width: 80px;
+    display: flex;
+
+    position: absolute;
+    right: 1px;
+    top:5px;
+}
+@media only screen and (max-width:920px){
+    .mat-elevation-z8{
+        display: none;
+    }
+    .table-container{
+        display: block;
+    }
+
+}
+@media only screen and (max-width:330px){
+    .img , .desc{
+        
+        width: 260px;
+    }
+
+}
